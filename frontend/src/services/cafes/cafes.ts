@@ -8,7 +8,7 @@ export class Cafes {
   _network: Axios;
 
   constructor() {
-    this._url = "http://localhost:5001/api/cafe";
+    this._url = "http://localhost:4000/api/cafe";
     this._network = axios;
   }
 

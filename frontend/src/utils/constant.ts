@@ -1,8 +1,6 @@
 import { ModalFuncProps } from "antd";
 import z from "zod";
 
-export const GOOGLE_MAP_API_KEY = "your_api_key"; // TODO: Add google map API key
-
 export enum ROUTES {
   CAFES = "/cafes",
   EMPLOYEES = "/employees",

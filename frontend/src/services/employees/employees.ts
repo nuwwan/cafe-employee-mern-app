@@ -6,7 +6,7 @@ export class Employees {
   _network: Axios;
 
   constructor() {
-    this._url = "http://localhost:5001/api/employee";
+    this._url = "http://localhost:4000/api/employee";
     this._network = axios;
   }
 

@@ -9,7 +9,7 @@ const normalizePort = (val) => {
   return isNaN(port) ? val : port >= 0 ? port : false;
 };
 
-const port = normalizePort(process.env.PORT || 5001);
+const port = normalizePort(process.env.PORT || 4000);
 
 const onError = (error) => {
   if (error.syscall !== "listen") throw error;

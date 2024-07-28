@@ -1,11 +1,10 @@
-import { Form, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
 import useGoogle from "react-google-autocomplete/lib/usePlacesAutocompleteService";
 import { CafeLocationType, CafeType } from "../../../utils/types";
 import {
   FORM_FIELD_CONSTANT,
-  GOOGLE_MAP_API_KEY,
 } from "../../../utils/constant";
 
 interface InputPropsType {
@@ -17,11 +16,6 @@ interface InputPropsType {
 }
 
 const SearchAddress = (props: InputPropsType) => {
-  const { placePredictions, getPlacePredictions, isPlacePredictionsLoading } =
-    useGoogle({
-      apiKey: GOOGLE_MAP_API_KEY,
-    });
-
   const { control } = useFormContext<CafeLocationType | CafeType>();
 
   const { fieldName, placeholder, name, width, handleValueChange } = props;
@@ -38,28 +32,11 @@ const SearchAddress = (props: InputPropsType) => {
             validateStatus={error?.message ? "error" : ""}
             help={error?.message && error.message}
           >
-            <Select
-              showSearch
-              value={value}
-              defaultValue={value}
-              style={{
-                minWidth: width ? width + "px" : "100%",
-              }}
+          
+            <Input
+              value={value as string}
               placeholder={placeholder}
-              showArrow={false}
-              filterOption={false}
-              clearIcon={true}
-              loading={isPlacePredictionsLoading}
-              onSearch={(e) => {
-                getPlacePredictions({ input: e });
-              }}
-              options={(placePredictions || [value]).map((d) => ({
-                value: d.description,
-              }))}
-              onChange={(e) => {
-                onChange(e);
-                handleValueChange && handleValueChange(e);
-              }}
+              onChange={(e) => onChange(e)}
             />
           </Form.Item>
         );
