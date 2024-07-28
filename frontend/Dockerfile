@@ -1,5 +1,5 @@
 # get base image
-FROM node:20.10.0
+FROM node:18.15.0
 
 # set working directory
 WORKDIR /app
@@ -13,10 +13,6 @@ RUN npm install
 # copy all files
 COPY . .
 
-# build the app
-RUN npm run build
+EXPOSE 3000
 
-# install nodemon(to run the app on dev mode)
-RUN npm i -g nodemon
-
-CMD [ "nodemon","dist/index.js" ]
+CMD ["npm", "start"]

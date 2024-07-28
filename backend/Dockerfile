@@ -3,10 +3,9 @@ FROM node:14
 WORKDIR /app
 
 COPY package.json ./
-COPY tsconfig.json ./
 RUN npm install
 
 COPY . .
 
-EXPOSE 5000
-CMD ["npm", "start"]
+EXPOSE 6000
+CMD ["npm", "run","devStart"]
