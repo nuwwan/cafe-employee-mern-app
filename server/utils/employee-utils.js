@@ -48,7 +48,7 @@ const updateEmployeeData = async (id, employeeData, cafeOption) => {
   };
 
   return await Employee.findOneAndUpdate(
-    { id },
+    { employeeId:id },
     { $set: update },
     { new: true }
   );
