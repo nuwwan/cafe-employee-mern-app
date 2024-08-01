@@ -11,9 +11,12 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./back
     ports:
       - '4000:4000'
+    environment:
+      - CONNECTION_STRING=mongodb://mongo:27017/mydatabase
+      - PORT=4000
     depends_on:
       - mongo
 
